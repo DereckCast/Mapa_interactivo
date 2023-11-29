@@ -67,13 +67,13 @@
 <h:form>
     <p:panelGrid columns="1" styleClass="form-register">
         <h:outputText value="Registro De Sesión" styleClass="form-register-header" />
-        <p:inputText value="#{usuarioBean.usuario.nombres}" styleClass="controls" placeholder="Ingrese su nombre" />
-        <p:inputText value="#{usuarioBean.usuario.apellido}" styleClass="controls" placeholder="Ingrese su apellido" />
-        <p:inputText value="#{usuarioBean.usuario.usuario}" styleClass="controls" placeholder="Ingrese su nombre de usuario" />
-        <p:inputText value="#{usuarioBean.usuario.cif}" styleClass="controls" placeholder="Ingrese su CIF" />
-        <p:inputText value="#{usuarioBean.usuario.correo}" styleClass="controls" placeholder="Ingrese su correo" />
-        <p:password value="#{usuarioBean.usuario.contrasenia}" styleClass="controls" placeholder="Ingrese su contraseña" />
-        <p:commandButton value="Registrarse" styleClass="botons" action="#{usuarioBean.redirectMapa}" />
+        <p:inputText value="#{UsuarioBean.usuario.nombres}" styleClass="controls" placeholder="Ingrese su nombre" />
+        <p:inputText value="#{UsuarioBean.usuario.apellido}" styleClass="controls" placeholder="Ingrese su apellido" />
+        <p:inputText value="#{UsuarioBean.usuario.nom_usuario}" styleClass="controls" placeholder="Ingrese su nombre de usuario" />
+        <p:inputText value="#{UsuarioBean.usuario.cif}" styleClass="controls" placeholder="Ingrese su CIF" />
+        <p:inputText value="#{UsuarioBean.usuario.correo}" styleClass="controls" placeholder="Ingrese su correo" />
+        <p:password value="#{UsuarioBean.usuario.contrasenia}" styleClass="controls" placeholder="Ingrese su contraseña" />
+        <p:commandButton value="Registrarse" styleClass="botons" action="#{UsuarioBean.redirectMapa}" />
         <h:outputText value="¿Ya tengo cuenta?" styleClass="form-register-link" />
         <p:link outcome="login.xhtml" value="Ir al inicio de sesión" styleClass="form-register-link" />
     </p:panelGrid>

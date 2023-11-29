@@ -1,4 +1,3 @@
-/*
 package model;
 
 import jakarta.persistence.*;
@@ -26,17 +25,6 @@ public class Historial {
     private char contacto_pais;
     private String local;
 
-    // Relación one-to-many con Eventos
-    @OneToMany(mappedBy = "historial", cascade = CascadeType.ALL)
-    private List<Eventos> eventos;
-
-    public List<Eventos> getEventos() {
-        return eventos;
-    }
-
-    public void setEventos(List<Eventos> eventos) {
-        this.eventos = eventos;
-    }
 
     public Integer getId() {
         return id;
@@ -155,4 +143,4 @@ public class Historial {
     }
 }
 
- */
+

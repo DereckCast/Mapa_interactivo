@@ -1,4 +1,4 @@
-/*
+
 package model;
 
 import jakarta.persistence.*;
@@ -16,19 +16,8 @@ public class Local {
     private char municipio;
     private String nombre;
 
-    // Relación one-to-many con Eventos
-    @OneToMany(mappedBy = "local", cascade = CascadeType.ALL)
-    private List<Eventos> eventos;
 
-    // Resto de los métodos getter y setter
 
-    public List<Eventos> getEventos() {
-        return eventos;
-    }
-
-    public void setEventos(List<Eventos> eventos) {
-        this.eventos = eventos;
-    }
 
     public Integer getId() {
         return id;
@@ -79,4 +68,3 @@ public class Local {
     }
 }
 
- */

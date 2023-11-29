@@ -16,10 +16,6 @@ public class Comentarios {
     private int hora;
     private float valoracion;
 
-    // Relación many-to-one con Usuario
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_user", insertable = false, updatable = false)
-    private Usuario usuario;
 
     public Integer getId() {
         return id;

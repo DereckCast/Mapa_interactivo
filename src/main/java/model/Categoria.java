@@ -1,4 +1,3 @@
-/*
 package model;
 
 import jakarta.persistence.*;
@@ -12,17 +11,6 @@ public class Categoria {
     private Integer id;
     private String nombre;
 
-    // Relación one-to-many con Eventos
-    @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
-    private List<Eventos> eventos;
-
-    public List<Eventos> getEventos() {
-        return eventos;
-    }
-
-    public void setEventos(List<Eventos> eventos) {
-        this.eventos = eventos;
-    }
 
     public Categoria() {
     }
@@ -43,9 +31,6 @@ public class Categoria {
         this.nombre = nombre;
     }
 
-
-
-
 }
 
- */
+

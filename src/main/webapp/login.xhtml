@@ -66,11 +66,10 @@
     <h:form>
         <p:panelGrid columns="1" styleClass="form-register">
             <h:outputText value="Inicio De Sesión" styleClass="form-register-header" />
-            
-            <p:inputText value="#{usuarioBean.usuario}" styleClass="controls" placeholder="Ingrese su nombre de usuario" />
-            <p:password value="#{usuarioBean.contrasenia}" styleClass="controls" placeholder="Ingrese su contraseña" />
-            
-            <p:commandButton value="Iniciar Sesión" styleClass="botons" action="#{usuarioBean.redirectInicio}" />
+
+            <p:inputText value="#{UsuarioBean.inputNomUsuario}" styleClass="controls" placeholder="Ingrese su nombre de usuario" />
+            <p:password value="#{UsuarioBean.inputContrasenia}" styleClass="controls" placeholder="Ingrese su contraseña" />
+            <p:commandButton value="Iniciar Sesión" styleClass="botons" action="#{UsuarioBean.redirectInicio}" />
             
             <h:outputText value="¿No tienes una cuenta?" styleClass="form-register-link" />
             <p:link outcome="registro.xhtml" value="Regístrate aquí" styleClass="form-register-link" />

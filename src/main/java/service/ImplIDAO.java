@@ -2,6 +2,7 @@ package service;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
+import model.Usuario;
 
 
 import java.util.List;
@@ -100,5 +101,21 @@ public class ImplIDAO implements IDAO{
             em.close();
         }
     }
+    @Override
+    public <T> T findById(Class<T> clazz, Integer id) {
+        EntityManager em = EntityManagerAdmin.getInstance();
+        try {
+            T entity = em.find(clazz,id);
+            return entity;
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+        finally {
+            em.close();
+        }
+    }
+
 
 }

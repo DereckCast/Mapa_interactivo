@@ -9,9 +9,10 @@ public interface IDAO {
      <T> void insert(T entity);
     //UPDATE
     <T> T update(T entity);
-
+    <T> T findById(Class<T> clazz,Integer id);
     <T> void remove(T entity);
     <T> List<T> get(String namedQuery, Class<T> clazz,Object...param);
+
 
 
 

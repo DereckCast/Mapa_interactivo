@@ -1,4 +1,4 @@
-/*package model;
+package model;
 
 import jakarta.persistence.*;
 
@@ -21,44 +21,7 @@ public class Eventos {
     private String correo_contacto;
     private char contacto_pais;
 
-    // Relación many-to-one con Categoria
-    @ManyToOne
-    @JoinColumn(name = "id_categoria")
-    private Categoria categoria;
 
-    // Relación many-to-one con Departamentos
-    @ManyToOne
-    @JoinColumn(name = "id_departamento")
-    private Departamentos departamento;
-
-    // Relación many-to-one con Local
-    @ManyToOne
-    @JoinColumn(name = "id_local")
-    private Local local;
-
-    public Local getLocal() {
-        return local;
-    }
-
-    public void setLocal(Local local) {
-        this.local = local;
-    }
-
-    public Departamentos getDepartamento() {
-        return departamento;
-    }
-
-    public void setDepartamento(Departamentos departamento) {
-        this.departamento = departamento;
-    }
-
-    public Categoria getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
-    }
 
     public Integer getId() {
         return id;
@@ -157,4 +120,4 @@ public class Eventos {
     }
 }
 
- */
+
