@@ -1,3 +1,4 @@
+/*
 package model;
 
 import jakarta.persistence.*;
@@ -77,3 +78,5 @@ public class Local {
         this.nombre = nombre;
     }
 }
+
+ */

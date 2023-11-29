@@ -1,4 +1,4 @@
-package model;
+/*package model;
 
 import jakarta.persistence.*;
 
@@ -156,3 +156,5 @@ public class Eventos {
         this.contacto_pais = contacto_pais;
     }
 }
+
+ */

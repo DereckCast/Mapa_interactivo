@@ -1,3 +1,4 @@
+/*
 package model;
 
 import jakarta.persistence.CascadeType;
@@ -41,3 +42,5 @@ public class Departamentos {
         Nom_dep = nom_dep;
     }
 }
+
+ */

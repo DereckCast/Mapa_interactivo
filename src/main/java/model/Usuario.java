@@ -14,15 +14,14 @@ public class Usuario {
 
     @Id
     private Integer id;
-    private String nom;
-    private String nom2;
+
+    private String nombres;
     private String apellido;
-    private String apellido2;
-    private String user_name;
-    private int cif;
-    private String correo_user;
+    private String usuario;
+    private String cif;
+    private String correo;
+    private String contrasenia;
     private Date fecha_user;
-    private String contra;
 
     // Relación one-to-many con Comentarios
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -36,20 +35,12 @@ public class Usuario {
         this.id = id;
     }
 
-    public String getNom() {
-        return nom;
+    public String getNombres() {
+        return nombres;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public String getNom2() {
-        return nom2;
-    }
-
-    public void setNom2(String nom2) {
-        this.nom2 = nom2;
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
     }
 
     public String getApellido() {
@@ -60,36 +51,36 @@ public class Usuario {
         this.apellido = apellido;
     }
 
-    public String getApellido2() {
-        return apellido2;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setApellido2(String apellido2) {
-        this.apellido2 = apellido2;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
-    public String getUser_name() {
-        return user_name;
-    }
-
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
-    }
-
-    public int getCif() {
+    public String getCif() {
         return cif;
     }
 
-    public void setCif(int cif) {
+    public void setCif(String cif) {
         this.cif = cif;
     }
 
-    public String getCorreo_user() {
-        return correo_user;
+    public String getCorreo() {
+        return correo;
     }
 
-    public void setCorreo_user(String correo_user) {
-        this.correo_user = correo_user;
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getContrasenia() {
+        return contrasenia;
+    }
+
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
     }
 
     public Date getFecha_user() {
@@ -98,14 +89,6 @@ public class Usuario {
 
     public void setFecha_user(Date fecha_user) {
         this.fecha_user = fecha_user;
-    }
-
-    public String getContra() {
-        return contra;
-    }
-
-    public void setContra(String contra) {
-        this.contra = contra;
     }
 
     public List<Comentarios> getComentarios() {

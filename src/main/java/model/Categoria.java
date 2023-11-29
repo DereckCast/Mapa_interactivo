@@ -1,3 +1,4 @@
+/*
 package model;
 
 import jakarta.persistence.*;
@@ -46,3 +47,5 @@ public class Categoria {
 
 
 }
+
+ */

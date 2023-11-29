@@ -6,6 +6,7 @@ import jakarta.inject.Named;
 import lombok.Getter;
 import lombok.Setter;
 import model.Autor;
+import model.Usuario;
 import service.IDAO;
 import service.ImplIDAO;
 
@@ -19,19 +20,17 @@ import java.util.List;
 public class usuarioBean implements Serializable {
 
     private IDAO dao = new ImplIDAO();
-    private String nombres;
-    private String apellido;
-    private String usuario;
-    private String cif;
-    private String correo;
-    private String contrasenia;
+    private Usuario usuario = new Usuario();  // Usa la nueva entidad Usuario
 
     // Constructor y getters/setters
 
     public String redirectMapa() {
-        // Lógica para el redireccionamiento después del registro
-        return "mapa.xhtml"; // Cambia esto según tus necesidades
+        // Inserta el nuevo usuario en la base de datos
+        dao.insert(usuario);
+
+        return "hola";
     }
+
     public void redirectInicio(){
 
     }
