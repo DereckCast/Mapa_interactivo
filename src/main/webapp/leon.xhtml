@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mapa con Buscador</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1/dist/leaflet.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-control-geocoder@2/dist/Control.Geocoder.min.css" />
+
+    <style>
+        html, body {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+        }
+        .dialog-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #mi_mapa {
+            flex-grow: 1;
+            height: 600px; /* Ajusta la altura según tus necesidades */
+        }
+
+        .button {
+            background-color: #04AA6D;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+        }
+
+        .search-bar {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+<div class="button-container">
+    <p:button value="Crear evento" styleClass="button" onclick="PF('eventoDialog').show();" />
+    <p:button value="Ver eventos pasados" styleClass="button" />
+    <p:button value="Regresar" styleClass="button" onclick="window.location.href='http://localhost:8080/demo1_war/home.xhtml'" />
+</div>
+
+<div class="search-bar">
+    <p:inputText placeholder="Buscar eventos" />
+    <p:commandButton value="Buscar" styleClass="button" />
+</div>
+
+<!-- Dialogo para crear evento -->
+<p:dialog header="Crear Evento" widgetVar="eventoDialog" resizable="false" modal="true">
+    <h:form id="eventoForm" class="dialog-form">
+        <h:outputLabel for="nombreEvento" value="Nombre del evento:" />
+        <p:inputText id="nombreEvento" value="#{EvemtoBean.eventos.nombre}" required="true" />
+
+        <h:outputLabel for="fecha" value="Fecha Del Evento:" />
+        <p:inputText id="fecha" value="#{EvemtoBean.eventos.nombre}" required="true" />
+
+        <h:outputLabel for="fechafinal" value="Fecha Final Del Evento:" />
+        <p:inputText id="fechafinal" value="#{EvemtoBean.eventos.nombre}" required="true" />
+
+        <h:outputLabel for="Hora" value="Hora De Inicio Del Evento:" />
+        <p:inputText id="Hora" value="#{EvemtoBean.eventos.nombre}" required="true" />
+
+        <h:outputLabel for="HoraF" value="Hora Final Del Evento:" />
+        <p:inputText id="HoraF" value="#{EvemtoBean.eventos.nombre}" required="true" />
+
+        <h:outputLabel for="Org" value="Organizador Del Evento:" />
+        <p:inputText id="Org" value="#{EvemtoBean.eventos.nombre}" required="true" />
+
+        <h:outputLabel for="Estado" value="Estado Del Evento" />
+        <p:inputText id="Estado" value="#{EvemtoBean.eventos.nombre}" required="true" />
+
+
+        <p:commandButton value="Guardar" action="#{EvemtoBean.eventos.nombre}" oncomplete="PF('eventoDialog').hide();" styleClass="button" />
+        <p:commandButton value="Cancelar" onclick="PF('eventoDialog').hide();" styleClass="button" />
+    </h:form>
+</p:dialog>
+
+<div id="mi_mapa"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1/dist/leaflet-src.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet-control-geocoder@2/dist/Control.Geocoder.min.js"></script>
+
+<script>
+    let map = L.map('mi_mapa').setView([12.43516,-86.87864], 18);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: "&#169; &lt;a href='https://www.openstreetmap.org/copyright'>OpenStreetMap&lt;/a> contributors"
+    }).addTo(map);
+
+    var geocoder = L.Control.geocoder({
+        defaultMarkGeocode: false,
+        placeholder: "Buscar dirección...",
+    }).on('markgeocode', function (e) {
+        var bbox = e.geocode.bbox;
+        var poly = L.polygon([
+            bbox.getSouthEast(),
+            bbox.getNorthEast(),
+            bbox.getNorthWest(),
+            bbox.getSouthWest()
+        ]).addTo(map);
+        map.fitBounds(poly.getBounds());
+    }).addTo(map);
+</script>
+</body>
+</html>
